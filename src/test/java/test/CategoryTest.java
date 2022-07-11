@@ -11,7 +11,7 @@ public class CategoryTest {
 
 	WebDriver driver;
 	
-//	@Test
+	@Test(priority=1)
 	public void validateUserAbleToAddCategoryAndIsDisplayed() {
 		
 		driver = BrowserFactory.inIt();
@@ -21,9 +21,10 @@ public class CategoryTest {
 		 toDoListPageObj.insertCategory();
 		 toDoListPageObj.clickAddCategoryButton();
 		 toDoListPageObj.validateFirstInsertedCategory();
+		 BrowserFactory.tearDown();
 	}
 
-//	@Test
+	@Test(priority=2)
 	public void validateUserNotAbleToAddDuplicateCategory() {
 		
 		driver = BrowserFactory.inIt();
@@ -32,15 +33,17 @@ public class CategoryTest {
 		toDoListPageObj.insertCategory();
 		toDoListPageObj.clickAddCategoryButton();
 		toDoListPageObj.getCategoryAlreadyExistsMessage();
+		BrowserFactory.tearDown();
 	}
 	
-//	@Test
+	@Test(priority=3)
 	public void validateMonthDropdown() {
 		
 		driver = BrowserFactory.inIt();
 		ToDoListPage toDoListPageObj = PageFactory.initElements(driver, ToDoListPage.class);
 		toDoListPageObj.getAllOptionsFromMonthDropdown();
 		toDoListPageObj.validateMonthDropdownHasAllMonths();
+		BrowserFactory.tearDown();
 	}
 	
 	

@@ -42,7 +42,7 @@ public class ToDoListPage extends BasePage{
 //	    	}else {
 //	    		System.out.println("First category is not displayed!");
 //	    	}
-	    	Assert.assertTrue(FirstCategoryListElement.isDisplayed(), "First Catogory list is not displayed");
+	    	Assert.assertTrue(FirstCategoryListElement.isDisplayed(), "First Catogory list is not displayed!!");
 	    }
 	    
 	    public void getCategoryAlreadyExistsMessage() {
