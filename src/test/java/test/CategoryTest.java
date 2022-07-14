@@ -17,10 +17,10 @@ public class CategoryTest {
 		driver = BrowserFactory.inIt();
 		ToDoListPage toDoListPageObj = PageFactory.initElements(driver, ToDoListPage.class);
 		
-		
-		 toDoListPageObj.insertCategory();
+		 toDoListPageObj.insertSportCategory();
 		 toDoListPageObj.clickAddCategoryButton();
-		 toDoListPageObj.validateFirstInsertedCategory();
+		 toDoListPageObj.validateInsertedSportCategory();
+		 toDoListPageObj.deleteSportCategory();
 		 BrowserFactory.tearDown();
 	}
 
@@ -30,9 +30,12 @@ public class CategoryTest {
 		driver = BrowserFactory.inIt();
 		ToDoListPage toDoListPageObj = PageFactory.initElements(driver, ToDoListPage.class);
 		
-		toDoListPageObj.insertCategory();
+		toDoListPageObj.insertSportCategory();
+		toDoListPageObj.clickAddCategoryButton();
+        toDoListPageObj.insertSportCategory();
 		toDoListPageObj.clickAddCategoryButton();
 		toDoListPageObj.getCategoryAlreadyExistsMessage();
+		toDoListPageObj.deleteSportCategory();
 		BrowserFactory.tearDown();
 	}
 	

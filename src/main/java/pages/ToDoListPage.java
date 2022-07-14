@@ -23,12 +23,14 @@ public class ToDoListPage extends BasePage{
 	  
 	    @FindBy(how= How.NAME,using="categorydata") WebElement CategoryElement;
 	    @FindBy(how= How.CSS,using="input[value='Add category']") WebElement AddCategoryButtonElement;
-	    @FindBy(how= How.XPATH,using="//span[contains(text( ), 'Sport')]") WebElement FirstCategoryListElement;
+	    @FindBy(how= How.XPATH,using="//span[contains(text( ), 'Sport')]") WebElement SportCategoryListElement;
+	    @FindBy(how= How.XPATH,using="//body/a[1]") WebElement YesElement;
+	    @FindBy(how= How.XPATH,using="//body/a[2]") WebElement NevermindElement;
 //	    @FindBy(how= How.XPATH,using="//body/text()[1]") WebElement CategoryExistsMessageElement;
-	    @FindBy(how= How.XPATH,using="//body") WebElement CategoryExistsMessageElement;
+	    @FindBy(how= How.XPATH,using="//body") WebElement BodyElement;
 	    @FindBy(how= How.XPATH,using="//select[@name='due_month']") WebElement DueMonthElement;
 	    
-	    public void insertCategory() {
+	    public void insertSportCategory() {
 	    	CategoryElement.sendKeys("Sport");
 	    }
 	    
@@ -36,17 +38,23 @@ public class ToDoListPage extends BasePage{
 	    	AddCategoryButtonElement.click();
 	    }
 	    
-	    public void validateFirstInsertedCategory() {
+	    public void validateInsertedSportCategory() {
 //	    	if (FirstCategoryListElement.isDisplayed()) {
 //	    		System.out.println("First category is displayed.");
 //	    	}else {
 //	    		System.out.println("First category is not displayed!");
 //	    	}
-	    	Assert.assertTrue(FirstCategoryListElement.isDisplayed(), "First Catogory list is not displayed!!");
+	    	Assert.assertTrue(SportCategoryListElement.isDisplayed(), "Sport Catogory list is not displayed!!");
+	    }
+	    
+	    public void deleteSportCategory() {
+	    	SportCategoryListElement.click();
+	    	YesElement.click();
 	    }
 	    
 	    public void getCategoryAlreadyExistsMessage() {
-           Assert.assertTrue(CategoryExistsMessageElement.getText().contains("The category you want to add already exists:"));
+           Assert.assertTrue(BodyElement.getText().contains("The category you want to add already exists:"));
+           NevermindElement.click();
         }
 	    
 	    public void getAllOptionsFromMonthDropdown() {

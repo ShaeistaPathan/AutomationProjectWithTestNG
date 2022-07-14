@@ -5,7 +5,7 @@
     <classes>
       <class name="test.CategoryTest">
         <methods>
-          <include name="validateMonthDropdown"/>
+          <include name="validateUserNotAbleToAddDuplicateCategory"/>
         </methods>
       </class> <!-- test.CategoryTest -->
     </classes>
